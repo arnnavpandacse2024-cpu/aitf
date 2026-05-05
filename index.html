@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CareerForge — Skill Gap Analyzer</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+
+  <!-- Noise texture overlay -->
+  <div class="noise-overlay"></div>
+
+  <!-- Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- ========== HERO / LANDING ========== -->
+  <section id="hero" class="hero">
+    <nav class="nav">
+      <div class="nav-logo">Career<span>Forge</span></div>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#analyzer">Analyzer</a>
+        <a href="#roadmap">Roadmap</a>
+      </div>
+      <button class="nav-cta" onclick="scrollToAnalyzer()">Start Free</button>
+    </nav>
+
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        AI-Powered Career Intelligence
+      </div>
+      <h1 class="hero-title">
+        Bridge Your<br/>
+        <em>Skill Gap.</em><br/>
+        Own Your Future.
+      </h1>
+      <p class="hero-sub">
+        Input your current skills. We'll analyze industry demand, identify what's missing,
+        and hand you a personalized roadmap to your dream career.
+      </p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="scrollToAnalyzer()">
+          <span>Analyze My Skills</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+        <button class="btn-ghost">See Sample Report</button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><strong>12K+</strong><span>Students Guided</span></div>
+        <div class="stat-div"></div>
+        <div class="stat"><strong>340+</strong><span>Career Paths</span></div>
+        <div class="stat-div"></div>
+        <div class="stat"><strong>98%</strong><span>Success Rate</span></div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="float-card card-1">
+        <div class="fc-icon">🎯</div>
+        <div class="fc-text"><strong>Gap Detected</strong><p>Machine Learning</p></div>
+      </div>
+      <div class="float-card card-2">
+        <div class="fc-icon">📈</div>
+        <div class="fc-text"><strong>Demand +67%</strong><p>Cloud Architecture</p></div>
+      </div>
+      <div class="float-card card-3">
+        <div class="fc-icon">✅</div>
+        <div class="fc-text"><strong>Skill Match</strong><p>React.js • 92%</p></div>
+      </div>
+      <div class="hero-orb orb-1"></div>
+      <div class="hero-orb orb-2"></div>
+      <div class="hero-orb orb-3"></div>
+    </div>
+  </section>
+
+  <!-- ========== FEATURES ========== -->
+  <section id="features" class="features-section">
+    <div class="section-label">What We Do</div>
+    <h2 class="section-title">Everything you need to <br/><em>navigate your career</em></h2>
+
+    <div class="features-grid">
+      <div class="feat-card feat-large">
+        <div class="feat-icon-wrap"><span>⚡</span></div>
+        <h3>Real-Time Skill Analysis</h3>
+        <p>Compare your skill profile against live industry data from 50,000+ job postings. See exactly where you stand.</p>
+        <div class="feat-bar-demo">
+          <div class="fbd-row"><span>Python</span><div class="fbd-bar"><div style="width:85%" class="fbd-fill c1"></div></div><em>85%</em></div>
+          <div class="fbd-row"><span>ML/AI</span><div class="fbd-bar"><div style="width:32%" class="fbd-fill c2"></div></div><em>32%</em></div>
+          <div class="fbd-row"><span>SQL</span><div class="fbd-bar"><div style="width:70%" class="fbd-fill c1"></div></div><em>70%</em></div>
+        </div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon-wrap"><span>🗺️</span></div>
+        <h3>Career Roadmap</h3>
+        <p>Get a step-by-step 6–18 month plan tailored to your pace, goals, and current skill level.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon-wrap"><span>📚</span></div>
+        <h3>Course Recommendations</h3>
+        <p>Curated certifications and projects from top platforms—Coursera, edX, Udemy, and more.</p>
+      </div>
+      <div class="feat-card feat-wide">
+        <div class="feat-icon-wrap"><span>🔮</span></div>
+        <h3>Future-Ready Insights</h3>
+        <p>Understand which skills will be in demand 3–5 years from now, powered by industry trend data and AI forecasting.</p>
+        <div class="fut-tags">
+          <span class="ft hot">🔥 GenAI</span>
+          <span class="ft hot">🔥 Quantum Computing</span>
+          <span class="ft">Edge Computing</span>
+          <span class="ft">WebAssembly</span>
+          <span class="ft">Rust</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TRENDING CAREERS ========== -->
+  <section id="trending" class="trending-section">
+    <div class="section-label">Industry Demands</div>
+    <h2 class="section-title">Most Demanding <em>Job Opportunities</em></h2>
+    <p class="section-sub">Explore the fastest-growing careers in the tech industry today, backed by real-time market data.</p>
+    
+    <div class="trending-grid">
+      <!-- Card 1 -->
+      <div class="trend-card">
+        <div class="tc-header">
+          <div class="tc-icon">🤖</div>
+          <div class="tc-badge hot">High Demand 🔥</div>
+        </div>
+        <h3>AI / GenAI Engineer</h3>
+        <p>Design, build, and deploy large language models and agentic workflows.</p>
+        <div class="tc-skills">
+          <span>Python</span><span>PyTorch</span><span>LLMs</span><span>Vector DBs</span>
+        </div>
+        <div class="tc-stats">
+          <div>📈 Growth: <strong>+85% YoY</strong></div>
+          <div>💰 Avg Salary: <strong>₹18-35 LPA</strong></div>
+        </div>
+      </div>
+      
+      <!-- Card 2 -->
+      <div class="trend-card">
+        <div class="tc-header">
+          <div class="tc-icon">☁️</div>
+          <div class="tc-badge">Steady Growth</div>
+        </div>
+        <h3>Cloud Security Architect</h3>
+        <p>Secure cloud infrastructures, manage identity, and ensure compliance in distributed systems.</p>
+        <div class="tc-skills">
+          <span>AWS/GCP</span><span>IAM</span><span>Zero Trust</span><span>Kubernetes Sec</span>
+        </div>
+        <div class="tc-stats">
+          <div>📈 Growth: <strong>+42% YoY</strong></div>
+          <div>💰 Avg Salary: <strong>₹15-30 LPA</strong></div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="trend-card">
+        <div class="tc-header">
+          <div class="tc-icon">📊</div>
+          <div class="tc-badge">Emerging</div>
+        </div>
+        <h3>Data Engineer (Modern Stack)</h3>
+        <p>Build scalable pipelines, manage data warehouses, and prepare data for ML models.</p>
+        <div class="tc-skills">
+          <span>Snowflake</span><span>dbt</span><span>Airflow</span><span>Kafka</span>
+        </div>
+        <div class="tc-stats">
+          <div>📈 Growth: <strong>+55% YoY</strong></div>
+          <div>💰 Avg Salary: <strong>₹12-28 LPA</strong></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ANALYZER ========== -->
+  <section id="analyzer" class="analyzer-section">
+    <div class="analyzer-header">
+      <div class="section-label">The Tool</div>
+      <h2 class="section-title">Your Personal <em>Skill Gap Analyzer</em></h2>
+      <p>Fill in your profile below and get an instant, detailed career analysis.</p>
+    </div>
+
+    <div class="analyzer-container">
+      <!-- STEP INDICATOR -->
+      <div class="steps-bar">
+        <div class="step active" id="step-dot-1"><span>1</span><p>Login</p></div>
+        <div class="step-line"></div>
+        <div class="step" id="step-dot-2"><span>2</span><p>Profile</p></div>
+        <div class="step-line"></div>
+        <div class="step" id="step-dot-3"><span>3</span><p>Goals</p></div>
+        <div class="step-line"></div>
+        <div class="step" id="step-dot-4"><span>4</span><p>Analysis</p></div>
+        <div class="step-line"></div>
+        <div class="step" id="step-dot-5"><span>5</span><p>Roadmap</p></div>
+      </div>
+
+      <!-- FORM PANEL -->
+      <div class="form-panel">
+
+        <!-- STEP 1: Login -->
+        <div class="form-step active" id="form-step-1">
+          <h3>Student Login</h3>
+          <div class="form-grid">
+            <div class="form-group full">
+              <label>Email Address</label>
+              <input type="email" id="userEmail" placeholder="student@university.edu" />
+            </div>
+            <div class="form-group full">
+              <label>Password</label>
+              <input type="password" id="userPass" placeholder="••••••••" />
+            </div>
+          </div>
+          <div class="step-nav" style="justify-content: flex-end;">
+            <button class="btn-next" onclick="nextStep(1)">Login →</button>
+          </div>
+        </div>
+
+        <!-- STEP 2: Profile -->
+        <div class="form-step" id="form-step-2">
+          <h3>Tell us about yourself</h3>
+          <div class="form-grid">
+            <div class="form-group">
+              <label>Full Name</label>
+              <input type="text" id="userName" placeholder="e.g. Priya Sharma" />
+            </div>
+            <div class="form-group">
+              <label>Education Level</label>
+              <select id="education">
+                <option value="">Select level</option>
+                <option>High School</option>
+                <option>Bachelor's Degree</option>
+                <option>Master's Degree</option>
+                <option>PhD</option>
+                <option>Self-taught / Bootcamp</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Field of Study</label>
+              <input type="text" id="fieldOfStudy" placeholder="e.g. Computer Science" />
+            </div>
+            <div class="form-group">
+              <label>Years of Experience</label>
+              <select id="experience">
+                <option value="">Select</option>
+                <option>0 – Fresher</option>
+                <option>1–2 years</option>
+                <option>3–5 years</option>
+                <option>5–10 years</option>
+                <option>10+ years</option>
+              </select>
+            </div>
+          </div>
+          <div class="step-nav">
+            <button class="btn-back" onclick="prevStep(2)">← Back</button>
+            <button class="btn-next" onclick="nextStep(2)">Next Step →</button>
+          </div>
+        </div>
+
+        <!-- STEP 3: Goals -->
+        <div class="form-step" id="form-step-3">
+          <h3>Skills & Career Goals</h3>
+
+          <div class="form-group full">
+            <label>Target Career Role</label>
+            <div class="career-chips" id="careerChips">
+              <div class="chip" data-value="Data Scientist" onclick="selectCareer(this)">Data Scientist</div>
+              <div class="chip" data-value="Full Stack Developer" onclick="selectCareer(this)">Full Stack Developer</div>
+              <div class="chip" data-value="Machine Learning Engineer" onclick="selectCareer(this)">ML Engineer</div>
+              <div class="chip" data-value="Cloud Architect" onclick="selectCareer(this)">Cloud Architect</div>
+              <div class="chip" data-value="Product Manager" onclick="selectCareer(this)">Product Manager</div>
+              <div class="chip" data-value="Cybersecurity Analyst" onclick="selectCareer(this)">Cybersecurity</div>
+              <div class="chip" data-value="DevOps Engineer" onclick="selectCareer(this)">DevOps Engineer</div>
+              <div class="chip" data-value="UI/UX Designer" onclick="selectCareer(this)">UI/UX Designer</div>
+            </div>
+            <input type="text" id="customCareer" placeholder="Or type a custom role..." style="margin-top:10px"/>
+          </div>
+
+          <div class="form-group full">
+            <label>Your Current Skills <span class="label-hint">(type and press Enter)</span></label>
+            <div class="skill-input-wrap">
+              <div class="skill-tags" id="skillTags"></div>
+              <input type="text" id="skillInput" placeholder="e.g. Python, React, SQL..." onkeydown="handleSkillInput(event)" />
+            </div>
+          </div>
+
+          <div class="form-group full">
+            <label>Timeline to Achieve Goal</label>
+            <div class="timeline-selector" id="timelineSelector">
+              <div class="tl-option active" onclick="selectTimeline(this, '3 months')">3 Months</div>
+              <div class="tl-option" onclick="selectTimeline(this, '6 months')">6 Months</div>
+              <div class="tl-option" onclick="selectTimeline(this, '1 year')">1 Year</div>
+              <div class="tl-option" onclick="selectTimeline(this, '2 years')">2 Years</div>
+            </div>
+          </div>
+
+          <div class="form-group full">
+            <label>Learning Preference</label>
+            <div class="pref-grid">
+              <div class="pref-card active" id="pref-online" onclick="selectPref('online')">
+                <span>💻</span><p>Online Courses</p>
+              </div>
+              <div class="pref-card" id="pref-books" onclick="selectPref('books')">
+                <span>📖</span><p>Books & Docs</p>
+              </div>
+              <div class="pref-card" id="pref-projects" onclick="selectPref('projects')">
+                <span>🛠️</span><p>Hands-on Projects</p>
+              </div>
+              <div class="pref-card" id="pref-mentoring" onclick="selectPref('mentoring')">
+                <span>🤝</span><p>Mentoring</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="step-nav">
+            <button class="btn-back" onclick="prevStep(3)">← Back</button>
+            <button class="btn-next" onclick="runAnalysis()">
+              <span id="analyzeLabel">Analyze Now</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- STEP 4 – LOADING -->
+        <div class="form-step" id="form-step-4">
+          <div class="loading-screen">
+            <div class="loader-ring"></div>
+            <h3 id="loadingText">Scanning industry data...</h3>
+            <div class="loading-steps">
+              <div class="ls" id="ls1">✓ Fetching job market trends</div>
+              <div class="ls" id="ls2">✓ Mapping your skill profile</div>
+              <div class="ls" id="ls3">✓ Identifying skill gaps</div>
+              <div class="ls" id="ls4">✓ Generating roadmap</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 5 – RESULTS -->
+        <div class="form-step" id="form-step-5">
+          <div class="results-section" id="resultsOutput"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ROADMAP SECTION ========== -->
+  <section id="roadmap" class="roadmap-section">
+    <div class="section-label">How It Works</div>
+    <h2 class="section-title">Your journey from <em>gap to greatness</em></h2>
+    <div class="roadmap-timeline">
+      <div class="rt-item">
+        <div class="rt-num">01</div>
+        <div class="rt-content">
+          <h4>Profile Assessment</h4>
+          <p>Input your current skills, education, and career goals into the analyzer.</p>
+        </div>
+      </div>
+      <div class="rt-connector"></div>
+      <div class="rt-item">
+        <div class="rt-num">02</div>
+        <div class="rt-content">
+          <h4>Gap Detection</h4>
+          <p>AI cross-references your profile with real-time job demand data.</p>
+        </div>
+      </div>
+      <div class="rt-connector"></div>
+      <div class="rt-item">
+        <div class="rt-num">03</div>
+        <div class="rt-content">
+          <h4>Personalized Plan</h4>
+          <p>Receive a custom roadmap with courses, certifications, and projects.</p>
+        </div>
+      </div>
+      <div class="rt-connector"></div>
+      <div class="rt-item">
+        <div class="rt-num">04</div>
+        <div class="rt-content">
+          <h4>Track Progress</h4>
+          <p>Follow your roadmap, complete milestones, and land your dream role.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="nav-logo">Career<span>Forge</span></div>
+        <p>Bridging the gap between where you are and where you want to be.</p>
+      </div>
+      <div class="footer-links">
+        <h5>Product</h5>
+        <a href="#">Skill Analyzer</a>
+        <a href="#">Career Paths</a>
+        <a href="#">Certifications</a>
+      </div>
+      <div class="footer-links">
+        <h5>Resources</h5>
+        <a href="#">Blog</a>
+        <a href="#">Guides</a>
+        <a href="#">API</a>
+      </div>
+      <div class="footer-links">
+        <h5>Company</h5>
+        <a href="#">About</a>
+        <a href="#">Privacy</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 CareerForge. Built to shape futures.</p>
+    </div>
+  </footer>
+
+  <!-- ========== PAYMENT MODAL ========== -->
+  <div id="paymentModal" class="modal-overlay">
+    <div class="modal-content">
+      <button class="close-modal" onclick="closePaymentModal()">×</button>
+      <h3>Unlock Course</h3>
+      <p id="modalCourseName" class="modal-course-name">Course Name</p>
+      <div class="payment-amount">Amount to Pay: <strong id="modalCoursePrice">₹0</strong></div>
+      
+      <div class="payment-form">
+        <div class="form-group">
+          <label>Card Number</label>
+          <input type="text" placeholder="XXXX XXXX XXXX XXXX" />
+        </div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Expiry Date</label>
+            <input type="text" placeholder="MM/YY" />
+          </div>
+          <div class="form-group">
+            <label>CVV</label>
+            <input type="password" placeholder="•••" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Cardholder Name</label>
+          <input type="text" placeholder="Name on card" />
+        </div>
+      </div>
+      
+      <button class="btn-primary" id="payNowBtn" style="margin-top:20px; width: 100%; justify-content: center;">
+        Pay Now
+      </button>
+    </div>
+  </div>
+
+  <!-- ========== FLOATING TUTOR ========== -->
+  <div class="tutor-widget" id="tutorWidget">
+    <div class="tutor-speech" id="tutorSpeech">
+      Hi! I'm your Career Guide. Not sure what to choose? Scroll down to explore Trending Careers!
+    </div>
+    <div class="tutor-avatar">
+      <div class="tutor-icon">🧑‍🏫</div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

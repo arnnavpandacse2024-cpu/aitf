@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: careerforge-analyzer
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: MONGODB_URI
+        sync: false # User must set this in Render Dashboard
+      - key: PORT
+        value: 10000
+      - key: NODE_ENV
+        value: production
